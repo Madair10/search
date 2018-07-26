@@ -6,6 +6,11 @@ const esClient = new elasticsearch.Client({
   log: 'error'
 });
 
+var cors = require('cors')
+
+var app = express()
+app.use(cors())
+
 const search = function search(index, body) {
   return esClient.search({index: index, body: body});
 };
